@@ -1,0 +1,3 @@
+[target.armv7-unknown-linux-gnueabihf]
+# runner = "qemu-system-arm -nographic -machine virt -cpu cortex-a7 -m 2G -smp 2"
+runner = "qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 1024 -M versatilepb -serial stdio -append 'root=/dev/sda2 panic=1' -hda archlinuxarm-29-04-2012.img -hdb root.ext2 -clock dynticks"
