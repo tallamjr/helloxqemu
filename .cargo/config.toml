@@ -1,12 +1,11 @@
-[target.armv7-unknown-linux-gnueabihf]
-runner = "qemu-system-arm -nographic -machine virt -cpu cortex-a7 -m 2G -smp 2 -semihosting-config enable=on,target=native -kernel"
-# runner = "qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 4G -M versatilepb -serial stdio -append 'root=/dev/sda2 panic=1' -hda archlinuxarm-29-04-2012.img -hdb root.ext2 -clock dynticks"
+[build]
+target = "thumbv7m-none-eabi"
 
 [target.thumbv7m-none-eabi]
-# uncomment this to make `cargo run` execute programs on QEMU
-runner = "qemu-system-arm -cpu cortex-m3 -machine lm3s6965evb -nographic -semihosting-config enable=on,target=native -kernel"
+runner = "qemu-system-arm -cpu cortex-m3 -machine lm3s6965evb -nographic -semihosting -kernel"
 
-[build]
-# Pick ONE of these default compilation targets
-# target = "thumbv6m-none-eabi"        # Cortex-M0 and Cortex-M0+
-# target = "thumbv7m-none-eabi"        # Cortex-M3
+[target.thumbv7m-none-eabi.dev-profile]
+opt-level = "s"
+
+[target.thumbv7m-none-eabi.release-profile]
+opt-level = "z"

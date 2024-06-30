@@ -7,3 +7,5 @@ edition = "2021"
 sys-info = "0.9.1"
 
 [dependencies]
+cortex-m-rt = "0.6.13"
+panic-halt = "0.2.0"
